@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% load static %}
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="{% static 'images/logo.png'%}" alt="">
+            <span>
+              ISSAC
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about' %}"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'jewellery' %}">Jewellery </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+              </ul>
+
+
+            </div>
+          </div>
+          <div class="quote_btn-container ">
+            <a href="">
+              <img src="{% static 'images/cart.png' %}" alt="">
+              <div class="cart_number">
+                0
+              </div>
+            </a>
+            <form class="form-inline">
+              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+            </form>
+          </div>
+        </nav>
+
+      </div>
+    </header>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th class="text-center">Price</th>
+              <!-- <th class="text-center">Total</th> -->
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td class="col-sm-8 col-md-6">
+                <div class="media">
+                  <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                      src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
+                      style="width: 72px; height: 72px;"> </a>
+                  <div class="media-body">
+                    <h4 class="media-heading"><a href="#">Product name</a></h4>
+                    <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                  </div>
+                </div>
+              </td>
+              <td class="col-sm-1 col-md-1" style="text-align: center">
+                <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+              </td>
+              <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
+              <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+              <td class="col-sm-1 col-md-1">
+                <button type="button" class="btn btn-danger">
+                  <span class="glyphicon glyphicon-remove"></span> Remove
+                </button>
+              </td>
+            </tr> -->
+            {% for cart in carts %}
+            <tr>
+              <td class="col-md-6">
+                <div class="media">
+                  <a class="thumbnail pull-left" href="#"> <img class="media-object" src="{{cart.items.image.url}}"
+                      style="width: 72px; height: 72px;"> </a>
+                  <div class="media-body">
+                    <h4 class="media-heading"><a href="#">{{cart.items.name}}</a></h4>
+                    <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                    <span>Status: </span><span class="text-warning"><strong>Leaves warehouse in 2 - 3
+                        weeks</strong></span>
+                  </div>
+                </div>
+              </td>
+              <td class="col-md-1" style="text-align: center">
+                <!-- <input type="email" class="form-control" id="exampleInputEmail1" value="2"> -->
+                <label for="quantity"></label>
+                <a class="minus-cart btn" pid="{{cart.items.id}}" id="minuscart" type="button"><i
+                    class="bi bi-dash-square"></i></a>
+                <span id="quantity">{{cart.quantity}}</span>
+                <a class="plus-cart btn" pid="{{cart.items.id}}" type="button" id="pluscart"><i
+                    class="bi bi-plus-square"></i></a>
+              </td>
+              <td class="col-md-1 text-center"><strong>{{cart.items.price}}</strong></td>
+              <!-- <td class="col-md-1 text-center"><strong>{{amount}}</strong></td> -->
+              <td class="col-md-1">
+
+                <a href="" class="remove-cart btn glyphicon glyphicon-remove" pid="{{cart.items.id}}" type="button"
+                  id="removecart">Remove</a>
+
+              </td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td>
+                <h5>Subtotal</h5>
+              </td>
+              <td class="text-right">
+                <h5><strong id="amount">{{amount}}</strong></h5>
+              </td>
+            </tr>
+            <tr>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td>
+                <h5>Estimated shipping</h5>
+              </td>
+              <td class="text-right">
+                <h5><strong>120</strong></h5>
+              </td>
+            </tr>
+            <tr>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td>
+                <h3>Total</h3>
+              </td>
+              <td class="text-right">
+                <h3><strong id="totalamount">{{totalamount}}</strong></h3>
+              </td>
+              
+            </tr>
+            <tr>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td>
+                <button type="button" class="btn btn-default">
+                  <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                </button>
+              </td>
+              <td>
+              
+                <form action="/checkout" method="">
+                  <input type="hidden" value="{{totalamount}}" name="totalamount" id="totalamount"> 
+                  <!-- <input type="hidden" value="{{cart.items.name}}" name="itemname" id="itemname">  -->
+                  <input type="hidden" value="{{amount}}" name="amount" id="amount"> 
+                  <!-- <input type="hidden" value="{{cart.items.id}}" name="show_id" id="show_id"> -->
+
+                  <button type="submit" class="btn btn-default">Check Out</button>
+                </form>
+               
+                    <!-- <span class="glyphicon glyphicon-shopping-cart"></span>Check out-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AVquP9QV3S2gA2Wwtg6EzwZoPPvk-GJvmkw3p7Xl_6V1ccrLite5oGcqcg5X7EUR_-2PQP5ZOzlbTxGm&currency=USD"></script>
+  
+
+
+
+  <script>
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+      // Set up the transaction
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: '{{totalamount}}'
+            }
+          }]
+        });
+      },
+
+      // Finalize the transaction
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (orderData) {
+          // Successful capture! For demo purposes:
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+          var transaction = orderData.purchase_units[0].payments.captures[0];
+          alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+
+          // Replace the above to show a success message within this page, e.g.
+          // const element = document.getElementById('paypal-button-container');
+          // element.innerHTML = '';
+          // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+          // Or go to another URL:  actions.redirect('thank_you.html');
+        });
+      }
+
+
+    }).render('#paypal-button-container');
+  </script>
+
+
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+    $('.plus-cart').click(function () {
+      var id = $(this).attr("pid").toString();
+      var eml = this.parentNode.children[2]
+
+
+      $.ajax({
+        type: "GET",
+        url: "/pluscart",
+        data: {
+          show_id: id
+        },
+        success: function (data) {
+          eml.innerText = data.quantity;
+          document.getElementById('amount').innerHTML = data.amount;
+          document.getElementById('totalamount').innerHTML = data.totalamount;
+         
+
+
+
+        }
+      })
+    })
+
+    $('.minus-cart').click(function () {
+      var id = $(this).attr("pid").toString();
+      var eml = this.parentNode.children[2]
+
+      $.ajax({
+        type: "GET",
+        url: "/minuscart",
+        data: {
+          show_id: id
+        },
+        success: function (data) {
+          eml.innerText = data.quantity;
+          document.getElementById('amount').innerText = data.amount;
+          document.getElementById('totalamount').innerText = data.totalamount;
+         
+        }
+      })
+    })
+
+
+    $('.remove-cart').click(function () {
+      var id = $(this).attr("pid").toString();
+      var eml = this.parentNode.children[2]
+      $.ajax({
+        type: "GET",
+        url: "/removecart",
+        data: {
+          show_id: id
+        },
+        success: function (data) {
+          console.log("delete")
+          document.getElementById('amount').innerText = data.amount;
+          document.getElementById('totalamount').innerText = data.totalamount;
+          eml.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
+
+        }
+      })
+      
+    })
+  </script>
+</body>
+
+</html>

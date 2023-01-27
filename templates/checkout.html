@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}" />
+
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="{% static 'images/logo.png'%}" alt="">
+            <span>
+              ISSAC
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about' %}"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'jewellery' %}">Jewellery </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+              </ul>
+
+
+            </div>
+          </div>
+          <div class="quote_btn-container ">
+            <a href="">
+              <img src="{% static 'images/cart.png' %}" alt="">
+              <div class="cart_number">
+                0
+              </div>
+            </a>
+            <form class="form-inline">
+              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+            </form>
+          </div>
+        </nav>
+
+      </div>
+
+    </header>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <h3>Check User details</h3>
+ <table class="table table-hover">
+          <tbody>
+            <tr>
+              <td>
+                First Name
+              </td>
+              <td>
+                {{page.first_name}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                last Name:
+              </td>
+              <td>
+                {{page.last_name}}
+              </td>
+            </tr>
+            {% for i in user %}
+            <tr>
+              <td>
+                User Name:
+              </td>
+              <td>
+                {{i.username}}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Email:
+              </td>
+              <td>
+                {{i.email}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Mobile Number
+              </td>
+              <td>
+                {{i.phone}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Address
+              </td>
+              <td>
+                {{i.address}}
+              </td>
+            </tr>
+            {% endfor %}
+
+            
+          </tbody>
+        </table>
+        <br><br><br><br>
+        <table class="table table-hover">
+
+          <h5>Check order details</h5>
+          <tbody>
+            {% for i in item %}
+            <tr>
+              <td>
+                <div class="boxer">
+                  <img src="{{i.items.image.url}}" alt="" srcset="" class="thumbnail pull-left"
+                    style="width: 72px; height: 72px;">
+                </div>
+              </td>
+              <td>
+                {{i.items.name}}
+              </td>
+              <td>
+                {{i.items.price}}
+              </td>
+              <td>
+                {{i.quantity}}
+              </td>
+              
+             
+              
+            </tr>
+            {% endfor %}  
+            <tr>
+              
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+                Amount
+              </td>
+
+              <td>
+               {{amount}}
+              </td>
+            </tr>
+          
+            <tr>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+                Delivery charges
+              </td>
+
+              <td>
+                Rs:120
+              </td>
+            </tr>
+              
+            <tr>
+              <td>
+                
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+                Total amount:
+              </td>
+              <td>
+
+                {{totalamount}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+                {{quantity}}
+              </td>
+              <td>
+                <button type="button" class="btn btn-success">
+
+                  <!-- Checkout <span class="glyphicon glyphicon-play"></span> -->
+                  <div id="paypal-button-container" class="btn btn-default"></div>
+
+                </button>
+              </td>
+            </tr>
+          
+
+
+          </tbody>
+         
+ </table>
+ <br>
+ <br>
+ <br>
+ </div>
+ </div>
+ 
+ 
+ </div>
+ 
+     
+
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AVquP9QV3S2gA2Wwtg6EzwZoPPvk-GJvmkw3p7Xl_6V1ccrLite5oGcqcg5X7EUR_-2PQP5ZOzlbTxGm&currency=USD"></script>
+
+
+
+
+  <script>
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+      // Set up the transaction
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: '{{totalamount}}'
+            }
+          }]
+        });
+      },
+
+      // Finalize the transaction
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (orderData) {
+          // Successful capture! For demo purposes:
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+          var transaction = orderData.purchase_units[0].payments.captures[0];
+          alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+
+          // Replace the above to show a success message within this page, e.g.
+          // const element = document.getElementById('paypal-button-container');
+          // element.innerHTML = '';
+          // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+          // Or go to another URL:  actions.redirect('thank_you.html');
+        });
+      }
+
+
+    }).render('#paypal-button-container');
+  </script>
+
+</body>
+
+</html>
